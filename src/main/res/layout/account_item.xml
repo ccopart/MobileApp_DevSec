@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="wrap_content"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="8dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:layout_marginBottom="30dp">
+        <TextView
+            android:id="@+id/text_view_id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:text="ID"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_alignParentRight="true" />
+
+        <TextView
+            android:id="@+id/text_view_account_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_toStartOf="@id/text_view_id"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="Account Name"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:layout_alignParentLeft="true"
+            android:layout_toLeftOf="@id/text_view_id" />
+        <TextView
+            android:id="@+id/text_view_iban"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_account_name"
+            android:text="IBAN" />
+
+        <TextView
+            android:id="@+id/text_view_amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/text_view_iban"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:text="Amount" />
+
+        <TextView
+            android:id="@+id/text_view_currency"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="€"
+            android:layout_below="@id/text_view_amount"
+            android:layout_centerHorizontal="true"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"/>
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
