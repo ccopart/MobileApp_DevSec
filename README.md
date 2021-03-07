@@ -36,13 +36,10 @@
 
   
   - Accounts page (empty when app is first installed, tap reload button to fetch data from api)
-    Reload button to fetch data
-    Add button to add account
   
   ![image](https://user-images.githubusercontent.com/64533110/110246885-bb8ff700-7f69-11eb-8e43-688693f48730.png)
   
   - Add account page unfilled (unavailable offline)
-    One button to save, one button to cancel
 
   ![image](https://user-images.githubusercontent.com/64533110/110246924-eda15900-7f69-11eb-98c3-f5e8d9565d97.png)
 
