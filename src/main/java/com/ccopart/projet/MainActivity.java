@@ -8,7 +8,10 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.util.Base64;
 import android.view.View;
@@ -87,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onFailure(Call<List<Account>> call, Throwable t) {
-                        Toast.makeText(MainActivity.this, "Network error : No connection", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(MainActivity.this, "Something went wrong, check if you're connected to internet", Toast.LENGTH_SHORT).show();
                     }
                 });
             }
@@ -97,8 +100,13 @@ public class MainActivity extends AppCompatActivity {
         buttonAdd.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, AddAccountActivity.class);
-                startActivityForResult(intent, ADD_ACCOUNT_REQUEST);
+                if(checkConnection() == true){
+                    Intent intent = new Intent(MainActivity.this, AddAccountActivity.class);
+                    startActivityForResult(intent, ADD_ACCOUNT_REQUEST);
+                }
+                else{
+                    Toast.makeText(MainActivity.this, "Something went wrong, check if you're connected to internet", Toast.LENGTH_SHORT).show();
+                }
 
             }
         });
@@ -143,5 +151,16 @@ public class MainActivity extends AppCompatActivity {
             accountViewModel.insert(account);
             Toast.makeText(this, "New account created", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private boolean checkConnection(){
+        boolean connected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+            return true;
+        }
+        else
+            return false;
     }
 }
