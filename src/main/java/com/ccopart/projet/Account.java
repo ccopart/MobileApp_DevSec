@@ -1,8 +1,10 @@
 package com.ccopart.projet;
+import androidx.annotation.Keep;
 import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+@Keep
 @Entity(tableName = "account_table")
 public class Account {
 
