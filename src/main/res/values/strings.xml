@@ -1,4 +1,5 @@
 <resources>
     <string name="app_name">ESILV Bank Account Manager</string>
     <string name="api_url">aHR0cHM6Ly82MDEwMmYxNjZjMjFlMTAwMTcwNTAxMjgubW9ja2FwaS5pby9sYWJiYmFuay8=</string>
+    <string name="db_psw">cHNXQCEjMTAyOV8=</string>
 </resources>

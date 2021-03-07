@@ -2,6 +2,7 @@ package com.ccopart.projet;
 
 import android.content.Context;
 import android.os.AsyncTask;
+import android.util.Base64;
 
 import androidx.annotation.NonNull;
 import androidx.room.Database;
@@ -18,7 +19,7 @@ public abstract class AccountDB extends RoomDatabase {
     public abstract AccountDao accountDao();
 
     public static synchronized AccountDB getInstance(Context context) {
-        String psw = "pswd";
+        String psw = new String(Base64.decode(context.getString(R.string.db_psw),Base64.DEFAULT));
         final byte[] passphrase = psw.getBytes();
         final SupportFactory factory = new SupportFactory(passphrase);
         if (instance == null) {
