@@ -117,7 +117,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onResponse(Call<Account> call, Response<Account> response) {
                 if(!response.isSuccessful()){
-                    Toast.makeText(MainActivity.this, "An error has occured !", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "An error has occurred !", Toast.LENGTH_SHORT).show();
                     return;
                 }
                 Account accountResponse = response.body();
